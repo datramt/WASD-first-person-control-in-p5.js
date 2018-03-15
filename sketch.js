@@ -46,11 +46,18 @@ function setup() {
 function draw() {
   background(40);
 
+//   camera(
+//     playerPos.x, 0, (height/2) / tan(PI/6)+playerPos.y, -cos(endlessMouseX)*1000000+playerPos.x,
+//     endlessMouseY*1000000, -sin(endlessMouseX)*1000000+playerPos.y,
+//     0, 1, 0
+//   );
+
   camera(
-    playerPos.x, 0, (height/2) / tan(PI/6)+playerPos.y, -cos(endlessMouseX)*1000000+playerPos.x,
-    endlessMouseY*1000000, -sin(endlessMouseX)*1000000+playerPos.y,
+    playerPos.x, 0, playerPos.y, -cos(endlessMouseX)+playerPos.x,
+    endlessMouseY, -sin(endlessMouseX)+playerPos.y,
     0, 1, 0
   );
+
   //draw stars
   ambientMaterial(200, 150, 205);
   directionalLight(255, 255, 255, 30, 100, -500);
