@@ -62,7 +62,7 @@ PointerLock();
 
 ### Camera math
 
-with indefinite mouse movement detection, we can then use variables “endlessMouseX” and “endlessMouseY” as angles for the p5.js camera:
+with indefinite mouse movement detection, we can then use variables “endlessMouseX” and “endlessMouseY” for the angles in the p5.js camera:
 
 ```
   camera(
