@@ -67,9 +67,9 @@ with indefinite mouse movement detection, we can then use variables “endlessMo
 
 ```
   camera(
-   	playerPos.x, 0, (height/2) / tan(PI/6)+playerPos.y, -cos(endlessMouseX)*1000000+playerPos.x,
-    	endlessMouseY*1000000, -sin(endlessMouseX)*1000000+playerPos.y,
-    	0, 1, 0
+    playerPos.x, 0, playerPos.y, -cos(endlessMouseX)+playerPos.x,
+    endlessMouseY, -sin(endlessMouseX)+playerPos.y,
+    0, 1, 0
   );
 ```
 
