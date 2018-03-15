@@ -1,5 +1,7 @@
 # WASD first person control in p5.js
 
+![alt text](![alt text](https://raw.githubusercontent.com/datramt/WASD-first-person-control-in-p5.js/gh-pages/WASD.png))
+
 This is a simple Implementation of a WASD + mouse first-person character controller in p5.js. WASD first-person control requires a “Pointer Locker” whereas the mouse cursor becomes invisible and locked within the bounds of the canvas. Without a cursor locker, it becomes extremely difficult to simulate a 360° rotation of the character camera without the mouse cursor exiting the canvas bounds, and terminating movement when the cursor collides with the edge of the user’s screen. The Pointer Lock API allows for limitless x/y mouse motion. 
 
 * [Pointer Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
@@ -27,8 +29,8 @@ function PointerLock() {
     } else {
 		canvas.requestPointerLock();
     }
-	};
 }
+
 ```
 Define movement mouse movement callbacks
 ```
