@@ -18,40 +18,41 @@ Define pointer lock function
 
 ```
 function PointerLock() {
-  canvas = document.querySelector('canvas');
-  canvas.requestPointerLock = canvas.requestPointerLock ||
-   	                        	canvas.mozRequestPointerLock;
+	canvas = document.querySelector('canvas');
+	canvas.requestPointerLock = 	canvas.requestPointerLock ||
+   	                    		canvas.mozRequestPointerLock;
 	document.exitPointerLock = 	document.exitPointerLock ||
    	                       		document.mozExitPointerLock;
 	canvas.onclick = function() {
-    if (document.pointerLockElement === canvas ||
-      document.mozPointerLockElement === canvas) {
-    } else {
-		canvas.requestPointerLock();
-    }
+    		if (document.pointerLockElement === canvas ||
+      			document.mozPointerLockElement === canvas) {
+    		} else {
+			canvas.requestPointerLock();
+    		}
+	}
 }
 
 ```
 Define movement mouse movement callbacks
 ```
 function lockChangeAlert() {
-  if (document.pointerLockElement === canvas ||
-      document.mozPointerLockElement === canvas) {
-    console.log('The pointer lock status is now locked');
-    document.addEventListener("mousemove", updatePosition, false);
-  } else {
-    console.log('The pointer lock status is now unlocked');
-    document.removeEventListener("mousemove", updatePosition, false);
-  }
+	if (document.pointerLockElement === canvas ||
+      		document.mozPointerLockElement === canvas) {
+    		console.log('The pointer lock status is now locked');
+    		document.addEventListener("mousemove", updatePosition, false);
+  	} else {
+    		console.log('The pointer lock status is now unlocked');
+    		document.removeEventListener("mousemove", updatePosition, false);
+  	}
 }
 ```
 
 Get indefinite mouse movement data 
 ```
 function updatePosition(endless) {
-  endlessMouseX += endless.movementX*mouseSensitivity;
-  endlessMouseY += endless.movementY*mouseSensitivity;
-  theta = (endlessMouseX-PI/2)%TWO_PI;
+	endlessMouseX += endless.movementX*mouseSensitivity;
+  	endlessMouseY += endless.movementY*mouseSensitivity;
+  	theta = (endlessMouseX-PI/2)%TWO_PI;
 }
 ```
 
@@ -66,9 +67,9 @@ with indefinite mouse movement detection, we can then use variables “endlessMo
 
 ```
   camera(
-    playerPos.x, 0, (height/2) / tan(PI/6)+playerPos.y, -cos(endlessMouseX)*1000000+playerPos.x,
-    endlessMouseY*1000000, -sin(endlessMouseX)*1000000+playerPos.y,
-    0, 1, 0
+   	playerPos.x, 0, (height/2) / tan(PI/6)+playerPos.y, -cos(endlessMouseX)*1000000+playerPos.x,
+    	endlessMouseY*1000000, -sin(endlessMouseX)*1000000+playerPos.y,
+    	0, 1, 0
   );
 ```
 
@@ -76,7 +77,7 @@ with indefinite mouse movement detection, we can then use variables “endlessMo
 
 ```
 function polToCar(r, theta) {
-  return createVector(r * cos(theta), r * sin(theta));
+  	return createVector(r * cos(theta), r * sin(theta));
 }
 ```
 
@@ -85,21 +86,21 @@ function polToCar(r, theta) {
 ```
 function wasd() {
 	let forwardstep = polToCar(5, (theta-PI/2));
-  let backstep = polToCar(-5, (theta-PI/2));
-  let rightstep = polToCar(5, (theta));
-  let leftstep = polToCar(-5, (theta));
-  if (keyD == true) {
-    playerPos.add(rightstep);
-  }
-  if (keyS == true) {
-    playerPos.add(backstep);
-  }
-  if (keyA == true) {
-    playerPos.add(leftstep);
-  }
-  if (keyW == true) {
-    playerPos.add(forwardstep);
-  }
+  	let backstep = polToCar(-5, (theta-PI/2));
+  	let rightstep = polToCar(5, (theta));
+  	let leftstep = polToCar(-5, (theta));
+  	if (keyD == true) {
+  		playerPos.add(rightstep);
+  	}
+  	if (keyS == true) {
+    		playerPos.add(backstep);
+  	}
+  	if (keyA == true) {
+    		playerPos.add(leftstep);
+  	}
+  	if (keyW == true) {
+    		playerPos.add(forwardstep);
+  	}
 }
 ```
 
